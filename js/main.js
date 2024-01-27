@@ -6,23 +6,22 @@ console.log("¡Bienvenido!");
 console.log("Script cargado correctamente.");
 
 // Obtener referencias a los elementos HTML
-let nombreElemento = document.getElementById('nombre');
-let edadElemento = document.getElementById('edad');
-let paisElemento = document.getElementById('pais');
+let nombreElemento = document.getElementById('Pais');
+let edadElemento = document.getElementById('Zona');
 
 // Hacer una petición para un usuario con ID específico
 const solicitudAPI = () => {
   // Asigna la función al evento load del objeto window
   axios
-    .get('https://tu-api-que-retorna-informacion-del-usuario.com')
+    .get('https://iot-fcg-01.000webhostapp.com/php-examen-api/index.php')
     .then(function (response) {
       // Manejar respuesta exitosa
       console.log(response.data);
 
       // Actualizar los elementos HTML con la información obtenida
-      nombreElemento.innerHTML = response.data.nombre;
-      edadElemento.innerHTML = response.data.edad;
-      paisElemento.innerHTML = response.data.pais;
+      nombreElemento.innerHTML = response.data.Pais;
+      edadElemento.innerHTML = response.data.Zona;
+    
 
     })
     .catch(function (error) {
