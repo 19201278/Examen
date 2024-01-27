@@ -5,10 +5,10 @@ console.log("¡Bienvenido!");
 console.log("Script cargado correctamente.");
 
 // Obtener referencias a los elementos HTML
-let idElemento = document.getElementById('id');
-let nombrePaisElemento = document.getElementById('nombre_pais');
-let nombreElemento = document.getElementById('nombre');
-let edadElemento = document.getElementById('edad');
+let idElemento = document.getElementById('ip');
+let nombrePaisElemento = document.getElementById('pais');
+let nombreElemento = document.getElementById('ciudad');
+let edadElemento = document.getElementById('bandera');
 
 // Hacer una petición a la API al cargar la página
 const solicitudAPI = () => {
