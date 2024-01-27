@@ -20,10 +20,10 @@ const solicitudAPI = () => {
       console.log(response.data);
 
       // Actualizar los elementos HTML con la información obtenida
-      idElemento.value = response.data.id;
-      nombrePaisElemento.value = response.data.nombre_pais;
-      nombreElemento.value = response.data.nombre;
-      edadElemento.value = response.data.edad;
+      idElemento.value = response.data.ip;
+      nombrePaisElemento.value = response.data.pais;
+      nombreElemento.value = response.data.ciudad;
+      edadElemento.value = response.data.bandera;
     })
     .catch(function (error) {
       // Manejar error
@@ -35,3 +35,4 @@ const solicitudAPI = () => {
 // Y llama a la función solicitudAPI que tiene la rutina 
 // de llamar a la API desde axios 
 window.addEventListener('load', solicitudAPI);
+
