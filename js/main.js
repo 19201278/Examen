@@ -1,15 +1,16 @@
-// alert("Hola mundo");
-// dar un mensaje al usuario que está utilizando la página
+// Mensaje de bienvenida en la consola
 console.log("¡Bienvenido!");
 
 // Verificar si está unido el script
 console.log("Script cargado correctamente.");
 
 // Obtener referencias a los elementos HTML
-let nombreElemento = document.getElementById('Pais');
-let edadElemento = document.getElementById('Zona');
+let idElemento = document.getElementById('id');
+let nombrePaisElemento = document.getElementById('nombre_pais');
+let nombreElemento = document.getElementById('nombre');
+let edadElemento = document.getElementById('edad');
 
-// Hacer una petición para un usuario con ID específico
+// Hacer una petición a la API al cargar la página
 const solicitudAPI = () => {
   // Asigna la función al evento load del objeto window
   axios
@@ -19,17 +20,14 @@ const solicitudAPI = () => {
       console.log(response.data);
 
       // Actualizar los elementos HTML con la información obtenida
-      nombreElemento.innerHTML = response.data.Pais;
-      edadElemento.innerHTML = response.data.Zona;
-    
-
+      idElemento.value = response.data.id;
+      nombrePaisElemento.value = response.data.nombre_pais;
+      nombreElemento.value = response.data.nombre;
+      edadElemento.value = response.data.edad;
     })
     .catch(function (error) {
       // Manejar error
       console.log(error);
-    })
-    .finally(function () {
-      // Siempre se ejecutará
     });
 };
 
