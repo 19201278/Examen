@@ -25,7 +25,7 @@
     <div class="container">
         <h2 class="text-center">Metodo POST</h2>
 
-        <form action="procesar_formulario.php" method="post">
+        <form id="miFormulario">
             <div class="form-group">
                 <label for="ip" class="text-center">ip:</label>
                 <input type="text" class="form-control" name="ip" required>
@@ -46,7 +46,7 @@
                 <input type="text" class="form-control" name="bandera" required>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-block">Agregar a la Base de Datos</button>
+            <button type="button" class="btn btn-primary btn-block" onclick="enviarFormulario()">Agregar a la Base de Datos</button>
         </form>
     </div>
 
@@ -56,5 +56,22 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+        function enviarFormulario() {
+            const formulario = document.getElementById('miFormulario');
+            const formData = new FormData(formulario);
+
+            axios.post('procesar_formulario.php', formData)
+                .then(response => {
+                    // Maneja la respuesta exitosa
+                    console.log('Respuesta exitosa:', response.data);
+                })
+                .catch(error => {
+                    // Maneja el error en caso de que la solicitud no sea exitosa
+                    console.error('Error al realizar la solicitud:', error);
+                });
+        }
+    </script>
 </body>
 </html>
