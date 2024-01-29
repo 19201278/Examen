@@ -23,9 +23,9 @@
 <body>
 
     <div class="container">
-        <h2 class="text-center">Metodo POST</h2>
+        <h2 class="text-center">Metodo GET</h2>
 
-        <form id="miFormulario">
+        <form id="miFormulario" method="get">
             <div class="form-group">
                 <label for="ip" class="text-center">ip:</label>
                 <input type="text" class="form-control" name="ip" required>
@@ -62,7 +62,10 @@
             const formulario = document.getElementById('miFormulario');
             const formData = new FormData(formulario);
 
-            axios.post('procesar_formulario.php', formData)
+            // Obtener la URL con los parámetros
+            const url = 'procesar_formulario.php?' + new URLSearchParams(formData).toString();
+
+            axios.get(url)
                 .then(response => {
                     // Maneja la respuesta exitosa
                     console.log('Respuesta exitosa:', response.data);
